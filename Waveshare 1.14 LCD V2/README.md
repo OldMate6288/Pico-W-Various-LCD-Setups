@@ -1,3 +1,8 @@
+Pico W Waveshare 1.14 LCD V2 Webserver
+
+![PICO W LCD](https://user-images.githubusercontent.com/93004427/179302669-647eeaa6-792c-49bc-9abe-a55e83bdd374.jpg)
+
+
 WHAT THIS DOES:
 
 Sets up webserver on the Pico W and displays webserver IP and time on the Waveshare 1.14 LCD. Also displays current connections.
