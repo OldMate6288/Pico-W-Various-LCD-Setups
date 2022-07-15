@@ -156,6 +156,7 @@ if __name__=='__main__':
     pwm.duty_u16(32768)# max 65535
     LCD = LCD_1inch14()
     
+    # Change to your router settings
     ssid = 'SSID'
 password = 'PASSWORD'
 
