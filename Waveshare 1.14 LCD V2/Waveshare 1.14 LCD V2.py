@@ -169,8 +169,8 @@ html = """<!DOCTYPE html>
         p {text-align: center;}
         div {text-align: center;}
     </style>
-    <title>FRP BYPASS</title> </head>
-    <body> <h1>Pico W FRP BYPASS</h1>
+    <title>Pico W LCD TEST</title> </head>
+    <body> <h1>ANDROID STUFF</h1>
         <p>%s</p>
         <p><a href="intent://com.android.settings/#Intent;scheme=android-app;end">OPEN SETTINGS</a></p>
         <p><a href="intent://com.sec.android.app.myfiles/#Intent;scheme=android-app;end">OPEN MY FILES</a></p>
