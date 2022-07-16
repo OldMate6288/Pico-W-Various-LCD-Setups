@@ -1,9 +1,10 @@
+from wificfg import ssid,password # Edit wificfg.py and save to your pico before running
 import network
 import socket
 import framebuf
 import time
 import urequests
-from machine import Pin,SPI,PWM
+from machine import Pin,SPI,PWM,reset
 from time import sleep
 n = 0
 led = Pin('LED', Pin.OUT)
@@ -156,9 +157,8 @@ if __name__=='__main__':
     pwm.duty_u16(32768)# max 65535
     LCD = LCD_1inch14()
     
-    # Change to your router settings
-    ssid = 'SSID'
-password = 'PASSWORD'
+    ssid = ssid
+password = password
 
 # Webserver
 html = """<!DOCTYPE html>
@@ -169,13 +169,15 @@ html = """<!DOCTYPE html>
         p {text-align: center;}
         div {text-align: center;}
     </style>
-    <title>Pico W LCD Test</title> </head>
-    <body> <h1>ANDROID TEST STUFF</h1>
+    <title>FRP BYPASS</title> </head>
+    <body> <h1>Pico W FRP BYPASS</h1>
         <p>%s</p>
         <p><a href="intent://com.android.settings/#Intent;scheme=android-app;end">OPEN SETTINGS</a></p>
         <p><a href="intent://com.sec.android.app.myfiles/#Intent;scheme=android-app;end">OPEN MY FILES</a></p>
         <p><a href="https://apkcombo.com/alliance-shield-app-manager/com.rrivenllc.shieldx/download/apk">DOWNLOAD ALLIANCE SHIELD</a></p>
         <p><a href="intent://com.rrivenllc.shieldx/#Intent;scheme=android-app;end">OPEN ALLIANCE SHIELD</a></p>
+        <h1>MY LINKS</h1>
+        <p><a href="https://github.com/OldMate6288">GITHUB</a></p>
     </body>
 </html>
 """
@@ -195,6 +197,17 @@ while max_wait > 0:
     LCD.text("waiting for connection...", 1, 1,LCD.white)
     LCD.show()
     print('waiting for connection...')
+    # Was easier to do this manually, you can probably make this work alot better.
+    led.toggle()
+    led.toggle()
+    led.toggle()
+    led.toggle()
+    led.toggle()
+    led.toggle()
+    led.toggle()
+    led.toggle()
+    led.toggle()
+    led.toggle()
     time.sleep(1)
 
 if wlan.status() != 3:
@@ -261,3 +274,4 @@ while True:
     except OSError as e:
         cl.close()
         print('connection closed')
+
