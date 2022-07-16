@@ -9,9 +9,10 @@ Sets up webserver on the Pico W and displays webserver IP and time on the Wavesh
 
 HOW TO SETUP:
 
-1. Change SSID and PASSWORD to your router settings
-2. Edit website however you like
-3. Save file to Pico as main.py
+1. Change SSID and PASSWORD in wificfg.py
+2. Save 'wificfg.py' to Pico
+3. Save 'Waveshare 1.14 LCD V2.py' to Pico as 'main.py'
+4. Restart Pico and hopefully everything should work fine!
 
 Super simple to setup.
 
