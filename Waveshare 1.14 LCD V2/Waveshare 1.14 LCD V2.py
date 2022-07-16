@@ -1,4 +1,4 @@
-from wificfg import ssid,password # Edit wificfg.py and save to your pico before running
+from wificfg import ssid,password
 import network
 import socket
 import framebuf
@@ -169,15 +169,34 @@ html = """<!DOCTYPE html>
         p {text-align: center;}
         div {text-align: center;}
     </style>
-    <title>Pico W LCD TEST</title> </head>
-    <body> <h1>ANDROID STUFF</h1>
-        <p>%s</p>
+    
+    <title>PICO WEBSERVER</title> </head>
+    
+    <body background="https://www.simpleimageresizer.com/_uploads/photos/c28dd66e/kong_3_1620x1080.gif">
+    
+        <h1><p style = "font-family:monospace;font-size:32px;font-style:normal;color:#00FF00;">PICO WEBSERVER</p></h1>
+        
+        <p><p style = "font-family:monospace;font-size:16px;font-style:normal;color:#00FF00;">%s</p>
+        
+        <p><form action="https://soundcloud.com/search?q=" class="searchform" method="get" name="searchform" target="_blank"></p>
+        <input name="sitesearch" type="hidden">
+        <p><input autocomplete="on" class="form-control search" name="q" placeholder="Search" required="required"  type="text"></p>
+        <p><button class="button" type="submit">Search SoundCloud</button></p>
+        </form>
+        
+        <p><form action="https://www.google.com/search" class="searchform" method="get" name="searchform" target="_blank"></p>
+        <input name="sitesearch" type="hidden">
+        <p><input autocomplete="on" class="form-control search" name="q" placeholder="Search" required="required"  type="text"></p>
+        <p><button class="button" type="submit">Search Google</button></p>
+        </form>
+        
+        <h1><p style = "font-family:monospace;font-size:32px;font-style:normal;color:#00FF00;">ANDROID STUFF</p></h1>
+        
         <p><a href="intent://com.android.settings/#Intent;scheme=android-app;end">OPEN SETTINGS</a></p>
         <p><a href="intent://com.sec.android.app.myfiles/#Intent;scheme=android-app;end">OPEN MY FILES</a></p>
         <p><a href="https://apkcombo.com/alliance-shield-app-manager/com.rrivenllc.shieldx/download/apk">DOWNLOAD ALLIANCE SHIELD</a></p>
         <p><a href="intent://com.rrivenllc.shieldx/#Intent;scheme=android-app;end">OPEN ALLIANCE SHIELD</a></p>
-        <h1>MY LINKS</h1>
-        <p><a href="https://github.com/OldMate6288">GITHUB</a></p>
+
     </body>
 </html>
 """
@@ -217,6 +236,9 @@ if wlan.status() != 3:
     raise RuntimeError('network connection failed')
 else:
     led.toggle()
+    LCD.fill(0)
+    LCD.text("connected", 1, 1,LCD.white)
+    LCD.show()
     print('connected')
     status = wlan.ifconfig()
     print( 'ip = ' + status[0] )
@@ -239,8 +261,7 @@ LCD.text(startTime, 1, 11,LCD.white)
 LCD.text("IP Address:", 1, 21,LCD.white)
 LCD.text(str(status[0]), 1, 31,LCD.white)
 LCD.show()
-
-
+            
 print('Start Time', startTime)
 print('listening on', addr)
 
@@ -263,7 +284,7 @@ while True:
         
         request = str(request)
         connectCount += 1
-        countText = "This site has been accessed " + str(connectCount) + " time since " + startTime
+        countText = "This site has been accessed " + str(connectCount) + " times since " + startTime
 
         response = html % countText
 
@@ -275,3 +296,5 @@ while True:
         cl.close()
         print('connection closed')
 
+
+        
