@@ -2,6 +2,7 @@
 Pico W webserver setup for various LCD's
 
 CURRENT SUPPORTED LCD'S:
-Waveshare 1.14 LCD V2
+Waveshare 1.14 LCD V2 (ST7789)
+SSD1306
 
-TODO: Add support for SSD1306 and Pico-Display
+TODO: Add support for Pico-Display (Maybe TFT)
