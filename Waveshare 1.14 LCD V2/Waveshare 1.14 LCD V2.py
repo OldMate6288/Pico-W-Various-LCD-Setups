@@ -216,17 +216,10 @@ while max_wait > 0:
     LCD.text("waiting for connection...", 1, 1,LCD.white)
     LCD.show()
     print('waiting for connection...')
-    # Was easier to do this manually, you can probably make this work alot better.
+    # This is now a lot more simple and finally repeats itself, still crap though!
     led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
+    time.sleep_ms(50)
+
     time.sleep(1)
 
 if wlan.status() != 3:
