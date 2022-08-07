@@ -82,17 +82,10 @@ while max_wait > 0:
     oled.text("connection...", 1, 21)
     oled.show()
     print('waiting for connection...')
-    # Was easier to do this manually, you can probably make this work alot better.
+    # I really hope this just works the same as the LCD, dunno why it wouldn't...
     led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
-    led.toggle()
+    time.sleep_ms(50)
+
     time.sleep(1)
 
 if wlan.status() != 3:
